@@ -866,9 +866,10 @@ body {
     }
 
     .skills-category {
-        background: rgba(9, 132, 227, 0.8);  /* Darker blue background */
+        background: rgba(255, 255, 255, 0.1);  /* Consistent with desktop transparency */
         border-radius: 10px;
         padding: 1.5rem;
+        backdrop-filter: blur(5px);
     }
 
     .skills-category h3 {
@@ -881,14 +882,15 @@ body {
     /* Make the mobile skill tag styles more specific */
     .technical-skills .frontend-skills .skill-tag,
     .technical-skills .backend-skills .skill-tag {
-        background: #e3f2fd !important;  /* Light blue background */
-        color: #0984e3 !important;      /* Blue text */
+        background: rgba(255, 255, 255, 0.1);  /* Consistent with desktop transparency */
+        color: white;
         padding: 5px 12px;
         border-radius: 20px;
         font-size: 0.9rem;
         font-weight: 500;
         margin: 4px;
         display: inline-block;
+        backdrop-filter: blur(5px);
     }
 
     .skills-list {
@@ -919,10 +921,11 @@ body {
 
     .upcoming-advisories,
     .published-advisories {
-        background: rgba(9, 132, 227, 0.8);  /* Darker blue background */
+        background: rgba(255, 255, 255, 0.15);  /* Consistent with desktop transparency */
         border-radius: 10px;
         padding: 1.5rem;
         width: 100%;
+        backdrop-filter: blur(5px);
     }
 
     .upcoming-advisories {
@@ -946,7 +949,7 @@ body {
     }
 
     .advisory-item {
-        background: rgba(255, 255, 255, 0.15);  /* Semi-transparent white */
+        background: rgba(255, 255, 255, 0.15);  /* Consistent with desktop transparency */
         padding: 1rem;
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.2);
