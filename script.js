@@ -550,7 +550,7 @@ function openImageModal(imageSrc, imageText, currentIndex) {
     updateModalImage();
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-
+    
     // Add event listeners
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', handleModalClick);
@@ -697,19 +697,6 @@ function setupCarousel() {
     carousel.addEventListener('mouseleave', startAutoPlay);
 }
 
-// Initialize modal functionality
-const modalElements = createImageModal();
-setupModalEvents(modalElements);
-
-// Example usage with carousel
-document.querySelectorAll('.carousel-image').forEach(image => {
-    image.addEventListener('click', () => {
-        const imageUrl = image.src;
-        const description = image.getAttribute('alt') || '';
-        openImageModal(imageUrl, description);
-    });
-});
-
 // Mobile Navigation
 function setupMobileNav() {
     const hamburger = document.querySelector('.hamburger');
@@ -724,9 +711,8 @@ function setupMobileNav() {
         document.body.classList.toggle('no-scroll');
         
         // Animate hamburger
-        hamburger.classList.toggle('active');
         const spans = hamburger.querySelectorAll('span');
-        if (hamburger.classList.contains('active')) {
+        if (navLinks.classList.contains('active')) {
             spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
             spans[1].style.opacity = '0';
             spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
@@ -742,13 +728,46 @@ function setupMobileNav() {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             document.body.classList.remove('no-scroll');
-            hamburger.classList.remove('active');
             const spans = hamburger.querySelectorAll('span');
             spans[0].style.transform = 'none';
             spans[1].style.opacity = '1';
             spans[2].style.transform = 'none';
         });
     });
+}
+
+// Image Modal
+function setupImageModal() {
+    const images = document.querySelectorAll('.news-image');
+    const modal = document.querySelector('.image-modal');
+    const modalImg = document.querySelector('.modal-image img');
+    const closeBtn = document.querySelector('.close-modal');
+
+    if (!modal || !modalImg || !closeBtn) return;
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            document.body.style.overflow = 'hidden';
+            
+            // Enable zoom on mobile
+            modalImg.style.touchAction = 'manipulation';
+            modalImg.style.userSelect = 'none';
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        modalImg.style.touchAction = '';
+        modalImg.style.userSelect = '';
+    }
 }
 
 // Smooth Scrolling
@@ -797,6 +816,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing components...');
     setupCarousel();
     setupMobileNav();
+    setupImageModal();
     setupSmoothScroll();
     setupNavbarScroll();
     loadPortfolioItems();
