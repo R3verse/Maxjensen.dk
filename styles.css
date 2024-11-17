@@ -1880,3 +1880,37 @@ section {
         font-size: 1rem;
     }
 }
+
+/* Blog Link Button */
+.blog-link {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.blog-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0984e3;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.blog-button:hover {
+    background-color: #0767b3;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(9, 132, 227, 0.3);
+}
+
+.blog-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(9, 132, 227, 0.2);
+}
+
+.blog-button i {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
