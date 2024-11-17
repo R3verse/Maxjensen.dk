@@ -712,14 +712,42 @@ document.querySelectorAll('.carousel-image').forEach(image => {
 
 // Mobile Navigation
 function setupMobileNav() {
-    const menuBtn = document.querySelector('.menu-btn');
-    const mobileNav = document.querySelector('.mobile-nav');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinksItems = document.querySelectorAll('.nav-links a');
     
-    if (!menuBtn || !mobileNav) return;
+    if (!hamburger || !navLinks) return;
 
-    menuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-        menuBtn.classList.toggle('active');
+    // Toggle navigation
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+        
+        // Animate hamburger
+        hamburger.classList.toggle('active');
+        const spans = hamburger.querySelectorAll('span');
+        if (hamburger.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    });
+
+    // Close menu when clicking links
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            hamburger.classList.remove('active');
+            const spans = hamburger.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        });
     });
 }
 
