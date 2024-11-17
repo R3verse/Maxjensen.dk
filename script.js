@@ -617,6 +617,41 @@ function showNotification(message, type) {
     }, 3000);
 }
 
+// Update active navigation item based on scroll position
+function updateActiveNavItem() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            currentSection = section.id;
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === currentSection) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Add scroll event listener
+window.addEventListener('scroll', updateActiveNavItem);
+window.addEventListener('load', updateActiveNavItem);
+
+// Update active state when clicking navigation links
+document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+
 // Initialize all functions
 document.addEventListener('DOMContentLoaded', () => {
     loadPortfolioItems();
