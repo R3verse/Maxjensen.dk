@@ -1307,9 +1307,13 @@ body {
     line-height: 1.4;
     max-height: 4.2em;
     overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    display: -moz-box;
+    display: box;
     -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
 }
 
 /* News Section */

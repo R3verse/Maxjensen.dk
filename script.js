@@ -72,26 +72,26 @@ function loadPortfolioItems() {
 // References Data
 const references = [
     {
-        name: "Jesper Nielsen",
-        position: "Senior Developer at Systematic",
+        name: "Jesper Juul Jensen",
+        position: "CEO at Ideanote",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/jesper.jpg?etag=W%2F%22495f-5773b80c%22&sourceContentType=image%2Fjpeg&ignoreAspectRatio&resize=200%2B200&quality=85",
         statement: "Max is an exceptional developer with strong problem-solving skills and attention to detail."
     },
     {
-        name: "Henrik Fabricius",
-        position: "CTO at HEFAISTOS",
+        name: "Henrik Faaborg",
+        position: "IT-Chef, Handelsskolen København Nord",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/hefa.jpg?etag=%22QjpdHI14qKByDm5SduiJyWNgqfA%22&sourceContentType=image%2Fjpeg&ignoreAspectRatio&resize=150%2B210&extract=0%2B0%2B150%2B157&quality=85",
         statement: "Highly skilled in full-stack development with excellent communication abilities."
     },
     {
-        name: "Mathias Lund Ahrens",
-        position: "Tech Lead at Hesehus",
+        name: "Jakob Heegaard",
+        position: "IT-Direktør, Jet Time A/S",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/30b04e1.jpg?etag=%225cc4-5773b730%22&sourceContentType=image%2Fjpeg&ignoreAspectRatio&resize=200%2B200&quality=85",
         statement: "A dedicated professional who consistently delivers high-quality solutions."
     },
     {
-        name: "Christian Kjær",
-        position: "Senior Developer at Hesehus",
+        name: "Connie Vang Jensen",
+        position: "Uddannelseschef HG",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/32bdde7.jpg?etag=%2282GdqmNfVv%2B92g54lmasz%2FRNado%22&sourceContentType=image%2Fjpeg",
         statement: "Innovative thinker with strong technical expertise and collaborative mindset."
     }
