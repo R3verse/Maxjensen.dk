@@ -172,6 +172,75 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    /* Strategy Section Mobile */
+    .strategies-section {
+        padding: 2rem 1rem;
+    }
+
+    .strategies-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .strategies-right {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        padding: 1.2rem;
+        backdrop-filter: blur(5px);
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    .upcoming-advisories,
+    .published-advisories {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        padding: 1.2rem;
+        backdrop-filter: blur(5px);
+        margin-bottom: 1.5rem;
+    }
+
+    .advisory-item {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .advisory-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .advisory-item h4 {
+        color: #ffffff;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .advisory-item p {
+        color: #ffffff;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .advisory-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.8rem;
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 0.8rem;
+        color: #ffffff;
+    }
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
