@@ -223,7 +223,6 @@ body {
     }
 }
 
-/* Additional Mobile Optimizations */
 @media (max-width: 480px) {
     .section-title {
         font-size: 1.8rem;
@@ -1927,6 +1926,7 @@ section {
     gap: 4rem;
     margin-top: 2rem;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .book-item {
@@ -1965,12 +1965,17 @@ section {
 
 .current-book {
     transform-origin: center;
+    margin-top: calc(1rem - 28px); /* Compensate for the 1.1 scale */
 }
 
 .current-book .book-image {
     transform: scale(1.1);
     box-shadow: 0 6px 15px rgba(9, 132, 227, 0.3);
     border: 3px solid #0984e3;
+}
+
+.finished-book {
+    margin-top: 1rem;
 }
 
 .finished-book .book-image {
@@ -2028,6 +2033,10 @@ section {
     .book-image {
         width: 160px;
         height: 224px;
+    }
+
+    .current-book {
+        margin-top: calc(1rem - 8px); /* Adjust compensation for smaller scale on mobile */
     }
 
     .current-book .book-image {
