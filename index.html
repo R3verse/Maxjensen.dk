@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -221,37 +220,30 @@
         <div class="container">
             <h2 class="section-heading">Contact</h2>
             <div class="contact-content">
-                <form id="contactForm" class="contact-form" onsubmit="return handleSubmit(event)">
+                <form id="contactForm" action="https://formsubmit.co/max@maxjensen.dk" method="POST">
+                    <input type="hidden" name="_next" value="https://r3verse.github.io/Maxjensen.dk/">
+                    <input type="hidden" name="_subject" value="New Portfolio Contact!">
+                    <input type="hidden" name="_template" value="table">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Your Email</label>
+                        <input type="text" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" name="subject" required>
-                        <label for="subject">Subject</label>
+                        <input type="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <label for="message">Message</label>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
                     </div>
-                    <div class="form-group recaptcha-container">
-                        <div id="recaptcha" class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span class="btn-text">Send Message</span>
-                        <div class="btn-loading">
-                            <div class="spinner"></div>
-                        </div>
-                    </button>
+                    <div class="g-recaptcha" data-sitekey="" id="recaptcha"></div>
+                    <button type="submit" class="submit-btn">Send Message</button>
                 </form>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link">
+                    <a href="https://www.linkedin.com/in/jensenmax/" target="_blank" class="social-link">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/R3verse" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
                     </a>
                 </div>
             </div>
@@ -264,6 +256,17 @@
         </div>
     </footer>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="config.js"></script>
+    <script>
+        // Set reCAPTCHA site key from config
+        document.addEventListener('DOMContentLoaded', () => {
+            const recaptchaDiv = document.getElementById('recaptcha');
+            if (recaptchaDiv && config && config.recaptcha) {
+                recaptchaDiv.setAttribute('data-sitekey', config.recaptcha.siteKey);
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 

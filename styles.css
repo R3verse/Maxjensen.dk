@@ -382,8 +382,28 @@ body {
     }
 
     .submit-btn {
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        margin-top: 20px;
+        width: auto;
+        display: inline-block;
+        background: #0984e3;
+        color: white;
+        border: none;
+    }
+
+    .submit-btn:hover {
+        background: #0077d4;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3);
+    }
+
+    .submit-btn:focus {
+        outline: none;
     }
 
     .carousel-container {
@@ -1142,22 +1162,28 @@ body {
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 14px 28px;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 20px;
+    width: auto;
+    display: inline-block;
     background: #0984e3;
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
 .submit-btn:hover {
-    background: #0873c7;
+    background: #0077d4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3);
+}
+
+.submit-btn:focus {
+    outline: none;
 }
 
 .btn-loading {

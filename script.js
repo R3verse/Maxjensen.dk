@@ -599,67 +599,6 @@ function setupNavbarScroll() {
     });
 }
 
-// Contact Form Handling
-async function handleSubmit(event) {
-    event.preventDefault();
-    
-    // Get form elements
-    const form = event.target;
-    const submitBtn = form.querySelector('.submit-btn');
-    const formData = new FormData(form);
-    
-    // Validate reCAPTCHA
-    const recaptchaResponse = grecaptcha.getResponse();
-    if (!recaptchaResponse) {
-        showNotification('Please complete the reCAPTCHA verification', 'error');
-        return false;
-    }
-
-    // Basic form validation
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    const subject = formData.get('subject').trim();
-    const message = formData.get('message').trim();
-
-    if (!name || !email || !subject || !message) {
-        showNotification('Please fill in all fields', 'error');
-        return false;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showNotification('Please enter a valid email address', 'error');
-        return false;
-    }
-
-    // Show loading state
-    submitBtn.classList.add('loading');
-    
-    try {
-        // Replace with your actual form submission endpoint
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            body: formData
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to send message');
-        }
-
-        // Clear form and show success message
-        form.reset();
-        grecaptcha.reset();
-        showNotification('Message sent successfully!', 'success');
-    } catch (error) {
-        showNotification('Failed to send message. Please try again.', 'error');
-    } finally {
-        submitBtn.classList.remove('loading');
-    }
-
-    return false;
-}
-
 // Notification System
 function showNotification(message, type) {
     const notification = document.createElement('div');
