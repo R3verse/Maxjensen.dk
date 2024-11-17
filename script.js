@@ -75,25 +75,31 @@ const references = [
         name: "Jesper Juul Jensen",
         position: "CEO at Ideanote",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/jesper.jpg?etag=W%2F%22495f-5773b80c%22&sourceContentType=image%2Fjpeg&ignoreAspectRatio&resize=200%2B200&quality=85",
-        statement: "Max is an exceptional developer with strong problem-solving skills and attention to detail."
+        statement: "Max Jensen is a intelligent young man with high ambitions. He has previous experience in the establishment of SMEs, which has given great practical and theoretical experience in entrepreneurship and IT support. Alongside his studies, he has always several projects on the working board which has provided him with a large client base and remarkable social skills. I can recommend Max Jensen as a classified It-Supporter and Programmer. I have worked with him in the establishment of a consulent firm, which were shut down due to the importance of his education as well as mine. With his age taken in consideration, i find his talents regarding computer programming and adjustment, in a level beyond his category."
     },
     {
         name: "Henrik Faaborg",
         position: "IT-Chef, Handelsskolen København Nord",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/hefa.jpg?etag=%22QjpdHI14qKByDm5SduiJyWNgqfA%22&sourceContentType=image%2Fjpeg&ignoreAspectRatio&resize=150%2B210&extract=0%2B0%2B150%2B157&quality=85",
-        statement: "Highly skilled in full-stack development with excellent communication abilities."
+        statement: "Max Jensen has been in practice in the IT department at Handelsskolen København Nord. Max has a great interest in IT and is very solution-oriented. Max Jensen worked well with colleagues in the IT department. If you have any further questions, you are welcome to contact me at 40170797"
     },
     {
         name: "Jakob Heegaard",
         position: "IT-Direktør, Jet Time A/S",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/30b04e1.jpg?etag=%225cc4-5773b730%22&sourceContentType=image%2Fjpeg&ignoreAspectRatio&resize=200%2B200&quality=85",
-        statement: "A dedicated professional who consistently delivers high-quality solutions."
+        statement: "Max Jensen has been employed as a student assistant, as an IT supporter at Jet Time A/S in the period 17.06.2013 - 30.06.2016. The tasks have been many with the main area within IT operations and support, IT security and with on various IT projects. All tasks have been solved to our complete satisfaction. Max works very independently and can handle stressful situations, in addition, he can come up with many suggestions and good ideas. Max has shown great initiative and been a responsible employee. Max has always been ready to lend a helping hand, at the same time he is never afraid of new challenges. Jet Time A/S can give Max Jensen the best recommendations and is confident that he will do a good job in whatever position, he ever holds."
     },
     {
         name: "Connie Vang Jensen",
         position: "Uddannelseschef HG",
         image: "https://impro.usercontent.one/appid/oneComWsb/domain/maxjensen.dk/media/maxjensen.dk/onewebmedia/32bdde7.jpg?etag=%2282GdqmNfVv%2B92g54lmasz%2FRNado%22&sourceContentType=image%2Fjpeg",
-        statement: "Innovative thinker with strong technical expertise and collaborative mindset."
+        statement: "Max joined the business school in the second year of the basic programme. He was quickly part of the school's IT specialists because of his IT knowledge. IT specialists are a group of students who are super users of the school's systems and can help and support their classmates. Max was one of the most active students and made presentations for a student support website and a mobile app. I am sure he is a great supporter and I would recommend him. If you have any more questions, you are welcome to contact me at 24404751."
+    },
+    {
+        name: "Flemming Agner Jørgensen",
+        position: "IT Support Coordinator hos Cloud People A/S",
+        image: "https://media.licdn.com/dms/image/v2/D4E03AQGy4cF6SD5eYw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1673460006588?e=2147483647&v=beta&t=zLRgNOuBjYpBRNTiDO6ZhnR8ziS11aD3HlWrH7uons8",
+        statement: "Jeg har haft fornøjelsen af Max som supporter i Cloud People og kan give ham mine bedste anbefalinger. Max er gået til opgaverne med stort engagement og lyst til at lære nyt og han har været hurtig til finde sin plads i teamet. Max har fået løst de givne opgaver på bedste vis og kundernes tilfredshed og han har helt sikkert potentiale til meget mere end 1. line support."
     }
 ];
 
@@ -102,7 +108,7 @@ function loadReferences() {
     const referencesGrid = document.querySelector('.references-grid');
     referencesGrid.innerHTML = '';
 
-    references.forEach(ref => {
+    references.forEach((ref, index) => {
         const referenceItem = document.createElement('div');
         referenceItem.className = 'reference-item';
         
@@ -113,7 +119,66 @@ function loadReferences() {
             <div class="reference-name">${ref.name}</div>
             <div class="reference-position">${ref.position}</div>
             <div class="reference-text">${ref.statement}</div>
+            <button class="show-more-btn">Show more</button>
         `;
+        
+        const showMoreBtn = referenceItem.querySelector('.show-more-btn');
+        showMoreBtn.addEventListener('click', () => {
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'reference-modal';
+            modal.innerHTML = `
+                <div class="reference-modal-content">
+                    <button class="reference-modal-close">&times;</button>
+                    <div class="reference-modal-header">
+                        <div class="reference-modal-image">
+                            <img src="${ref.image}" alt="${ref.name}">
+                        </div>
+                        <div class="reference-modal-info">
+                            <div class="reference-modal-name">${ref.name}</div>
+                            <div class="reference-modal-position">${ref.position}</div>
+                        </div>
+                    </div>
+                    <div class="reference-modal-text">${ref.statement}</div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            
+            // Add active class after a small delay for animation
+            requestAnimationFrame(() => {
+                modal.classList.add('active');
+                // Prevent body scrolling when modal is open
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close modal handlers
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => modal.remove(), 300);
+            };
+
+            // Close on X button click
+            const closeBtn = modal.querySelector('.reference-modal-close');
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close on ESC key
+            const escHandler = (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                    document.removeEventListener('keydown', escHandler);
+                }
+            };
+            document.addEventListener('keydown', escHandler);
+        });
         
         referencesGrid.appendChild(referenceItem);
     });
