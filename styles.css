@@ -878,15 +878,17 @@ body {
         text-align: center;
     }
 
-    .frontend-skills .skill-tag,
-    .backend-skills .skill-tag {
-        background: #e3f2fd;
-        color: #0984e3;
+    /* Make the mobile skill tag styles more specific */
+    .technical-skills .frontend-skills .skill-tag,
+    .technical-skills .backend-skills .skill-tag {
+        background: #e3f2fd !important;  /* Light blue background */
+        color: #0984e3 !important;      /* Blue text */
         padding: 5px 12px;
         border-radius: 20px;
         font-size: 0.9rem;
         font-weight: 500;
         margin: 4px;
+        display: inline-block;
     }
 
     .skills-list {
@@ -2220,8 +2222,8 @@ body {
 
 .strategies-left {
     display: grid;
-    width: 100%;
-    height: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
 }
 
 .strategy-item {
