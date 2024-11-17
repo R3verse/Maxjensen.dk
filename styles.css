@@ -1924,7 +1924,7 @@ section {
 .books-grid {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 4rem;
     margin-top: 2rem;
     flex-wrap: wrap;
 }
@@ -1934,11 +1934,43 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-top: 2rem;
 }
 
-.book-item:hover {
-    transform: translateY(-10px);
+.book-status {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.current-book .book-status {
+    background-color: #0984e3;
+    color: white;
+}
+
+.finished-book .book-status {
+    background-color: #00b894;
+    color: white;
+}
+
+.current-book .book-image {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(9, 132, 227, 0.3);
+    border: 3px solid #0984e3;
+}
+
+.finished-book .book-image {
+    opacity: 0.9;
+    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.2);
+    border: 3px solid #00b894;
 }
 
 .book-image {
@@ -1946,18 +1978,35 @@ section {
     height: 280px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.book-item:hover .book-image {
+    transform: translateY(-10px);
+}
+
+.current-book:hover .book-image {
+    transform: translateY(-10px) scale(1.1);
 }
 
 .book-info {
     text-align: center;
+    margin-top: 1rem;
+}
+
+.current-book .book-info h4 {
+    color: #0984e3;
+}
+
+.finished-book .book-info h4 {
+    color: #00b894;
 }
 
 .book-info h4 {
-    color: #2d3436;
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
 }
 
 .book-info p {
@@ -1967,11 +2016,19 @@ section {
 
 @media (max-width: 768px) {
     .books-grid {
-        gap: 2rem;
+        gap: 3rem;
     }
 
     .book-image {
         width: 160px;
         height: 224px;
+    }
+
+    .current-book .book-image {
+        transform: scale(1.05);
+    }
+
+    .current-book:hover .book-image {
+        transform: translateY(-10px) scale(1.05);
     }
 }
