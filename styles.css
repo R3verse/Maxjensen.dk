@@ -1936,7 +1936,8 @@ section {
     align-items: center;
     transition: all 0.3s ease;
     position: relative;
-    padding-top: 2rem;
+    padding-top: 2.5rem;
+    margin-top: 1rem;
 }
 
 .book-status {
@@ -1949,6 +1950,7 @@ section {
     font-size: 0.9rem;
     font-weight: 500;
     white-space: nowrap;
+    z-index: 1;
 }
 
 .current-book .book-status {
@@ -1959,6 +1961,10 @@ section {
 .finished-book .book-status {
     background-color: #00b894;
     color: white;
+}
+
+.current-book {
+    transform-origin: center;
 }
 
 .current-book .book-image {
