@@ -1359,12 +1359,28 @@ body {
     background: #f8f9fa;
 }
 
+.carousel-text {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+    z-index: 1;
+}
+
 .carousel-dots {
     position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 0;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
+    justify-content: center;
     gap: 8px;
     z-index: 2;
 }
@@ -1380,19 +1396,6 @@ body {
 
 .carousel-dots .dot.active {
     background: #0984e3;
-}
-
-.carousel-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    font-size: 1rem;
-    line-height: 1.5;
-    z-index: 1;
 }
 
 /* Strategies Section */
