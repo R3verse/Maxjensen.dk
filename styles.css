@@ -176,68 +176,53 @@
     /* Strategy Section Mobile */
     .strategies-section {
         padding: 2rem 1rem;
+        background: linear-gradient(135deg, #0984e3, #74b9ff) !important;
     }
-
+    
     .strategies-content {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
+        width: 100%;
         max-width: 500px;
         margin: 0 auto;
     }
-
-    .strategies-right {
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 10px;
-        padding: 1.2rem;
-        backdrop-filter: blur(5px);
-        max-height: 500px;
-        overflow-y: auto;
-    }
-
-    .upcoming-advisories,
-    .published-advisories {
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 10px;
-        padding: 1.2rem;
-        backdrop-filter: blur(5px);
-        margin-bottom: 1.5rem;
-    }
-
-    .advisory-item {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .advisory-item:last-child {
-        margin-bottom: 0;
-    }
-
-    .advisory-item h4 {
-        color: #ffffff;
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-    }
-
-    .advisory-item p {
-        color: #ffffff;
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-
-    .advisory-meta {
+    
+    .strategies-left {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 0.8rem;
-        padding-top: 0.8rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        font-size: 0.8rem;
-        color: #ffffff;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .strategy-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .strategy-item {
+        width: 100%;
+        margin: 0 auto;
+        padding: 1.5rem;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 10px;
+        backdrop-filter: blur(5px) !important;
+    }
+    
+    .strategy-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: white !important;
+    }
+    
+    .strategy-item p {
+        color: rgba(255, 255, 255, 0.9) !important;
+        line-height: 1.4;
+        text-align: left;
+        font-size: 0.9rem;
     }
 }
 
@@ -3619,10 +3604,10 @@ section {
     /* About Section Mobile */
     .about-section {
         padding: 3rem 1rem;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
+        background: rgba(9, 132, 227, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
     }
-
+    
     .about-content {
         display: flex;
         flex-direction: column;
@@ -3631,19 +3616,19 @@ section {
         max-width: 500px;
         margin: 0 auto;
     }
-
+    
     .about-text {
         text-align: center;
-        color: white;
+        color: #2d3436 !important;
     }
-
+    
     .about-text p {
         font-size: 0.9rem;
         line-height: 1.6;
         margin-bottom: 1rem;
-        color: rgba(255, 255, 255, 0.9);
+        color: #2d3436 !important;
     }
-
+    
     .skills {
         display: flex;
         flex-wrap: wrap;
@@ -3651,13 +3636,14 @@ section {
         gap: 0.5rem;
         margin-top: 1rem;
     }
-
+    
     .skill-tag {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
+        background: rgba(9, 132, 227, 0.1) !important;
+        color: #2d3436 !important;
         padding: 0.5rem 1rem;
         border-radius: 20px;
         font-size: 0.9rem;
+        backdrop-filter: blur(5px) !important;
     }
 
     /* Portfolio Section Mobile */
